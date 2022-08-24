@@ -1,0 +1,28 @@
+.background_movies {
+	background-image: url('../../../source/bird.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: fixed;
+	opacity: 0.7;
+	top: 50%;
+	left: 3%;
+	height: 505px;
+	width: 500px;
+	transform: rotate(-15deg) translate(0, -50%);
+}
+
+.movies_page {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 16px;
+	display: flex;
+	margin-top: 100px;
+
+	&__filter {
+		flex: 1 0 30%;
+		height: fit-content;
+		background-color: rgb(56, 56, 56);
+		margin-top: 20px;
+		padding: 20px;
+		border-radius: 16px;
+	}
+}

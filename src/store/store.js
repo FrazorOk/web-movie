@@ -1,0 +1,16 @@
+import { applyMiddleware, combineReducers, legacy_createStore } from 'redux';
+import thunk from 'redux-thunk';
+import headerReducer from './header-reducer';
+import homeReducer from './home-reducer';
+import moviesReducer from './movies-reducer';
+
+let reducers = combineReducers({
+	header: headerReducer,
+	home: homeReducer,
+	movies: moviesReducer,
+});
+
+let store = legacy_createStore(reducers, applyMiddleware(thunk));
+
+export default store;
+window.store = store;

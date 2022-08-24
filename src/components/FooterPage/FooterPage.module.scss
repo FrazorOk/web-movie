@@ -1,0 +1,23 @@
+.footer_page {
+	min-height: 300px;
+	background-image: url(./footerBackground.jpg);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	z-index: 1;
+	margin-top: 80px;
+
+	&__contant {
+		z-index: 100;
+	}
+}
+.footer_page::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background: linear-gradient(0deg, rgba(10, 10, 10, 0.2) 4%, rgba(10, 10, 10, 1) 100%);
+}

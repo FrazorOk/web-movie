@@ -1,0 +1,19 @@
+.navbar__filter {
+	background-color: grey;
+	position: absolute;
+	width: 250px;
+	left: 25px;
+	top: 100%;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	padding: 20px 50px 10px 50px;
+	cursor: default;
+
+	a {
+		width: fit-content;
+		padding: 1px 5px;
+		margin-bottom: 10px;
+		display: block;
+	}
+}
