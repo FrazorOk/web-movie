@@ -5,10 +5,10 @@ import React from 'react';
 const CompilationSliderBtns = ({ collaction }) => {
 	return (
 		<div className={s.collaction_container__row}>
-			<Link className={s.collaction_container__title} to={`/web-movie/movies/&${collaction.type}=${collaction.id}`}>
+			<Link className={s.collaction_container__title} to={`/movies/&${collaction.type}=${collaction.id}`}>
 				{collaction.name}
 			</Link>
-			<Link className={s.collaction_container__link} to={`/web-movie/movies/&${collaction.type}=${collaction.id}`}>
+			<Link className={s.collaction_container__link} to={`/movies/&${collaction.type}=${collaction.id}`}>
 				Дивитися всі
 			</Link>
 		</div>

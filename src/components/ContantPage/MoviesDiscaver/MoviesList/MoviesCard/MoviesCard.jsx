@@ -7,7 +7,7 @@ const MoviesCard = ({ item }) => {
 		<div className={s.movies_card}>
 			<div className={s.movies_card__img}>
 				<img src={`${urlImg}${item.poster_path}`} alt="error" />
-				<Link to={`/web-movie/movie/${item.id}`} className={s.movies_card__play}>
+				<Link to={`/movie/${item.id}`} className={s.movies_card__play}>
 					<div className={s.movies_card__play_container}>
 						<div className={s.movies_card__play_icon}>
 							<div className={s.movies_card__triangle_icon}></div>

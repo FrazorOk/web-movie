@@ -27,11 +27,11 @@ const ContantPage = () => {
 			) : (
 				<Suspense fallback={<Loader size={'150px'} marginTop={'150px'} />}>
 					<Routes>
-						<Route path="/web-movie/" element={<HomePage />} />
-						<Route path="/web-movie/movies/" element={<MoviesPage />} />
-						<Route path="/web-movie/movies/:params/" element={<MoviesPage />} />
-						<Route path="/web-movie/tv-series/" element={<TvPage />} />
-						<Route path="/web-movie/tv-series/:params/" element={<TvPage />} />
+						<Route path="/" element={<HomePage />} />
+						<Route path="/movies/" element={<MoviesPage />} />
+						<Route path="/movies/:params/" element={<MoviesPage />} />
+						<Route path="/tv-series/" element={<TvPage />} />
+						<Route path="/tv-series/:params/" element={<TvPage />} />
 					</Routes>
 				</Suspense>
 			)}

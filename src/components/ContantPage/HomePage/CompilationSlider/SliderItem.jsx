@@ -22,7 +22,7 @@ const SliderItem = ({ collaction }) => {
 						<div key={item.id} className={s.compilations_slider__item}>
 							<div className={s.compilations_slider__img}>
 								<img src={`${urlImg}${item.poster_path}`} alt="" />
-								<Link to={`/web-movie/movie/${item.id}`} className={s.compilations_slider__play}>
+								<Link to={`/movie/${item.id}`} className={s.compilations_slider__play}>
 									<div className={s.compilations_slider__play_container}>
 										<div className={s.compilations_slider__play_icon}>
 											<div className={s.compilations_slider__triangle_icon}></div>

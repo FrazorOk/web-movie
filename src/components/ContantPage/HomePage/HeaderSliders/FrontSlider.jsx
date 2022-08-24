@@ -84,12 +84,12 @@ const FrontSlider = (props) => {
 								<div className={s.slider_info}>
 									<div className={s.slider_info__container}>
 										<div className={s.slider_info__poster_block}>
-											<Link to={`/web-movie/movie/${item.id}`}>
+											<Link to={`/movie/${item.id}`}>
 												<img src={`${urlImg}${item.poster_path}`} alt="" />
 											</Link>
 										</div>
 										<div className={s.slider_info__text_block}>
-											<Link to={`/web-movie/movie/${item.id}`} className={s.slider_info__title}>
+											<Link to={`/movie/${item.id}`} className={s.slider_info__title}>
 												{item.title}
 											</Link>
 											<ul className={s.slider_info__ganres}>
@@ -105,7 +105,7 @@ const FrontSlider = (props) => {
 											</ul>
 											<p className={s.slider_info__data}>Реліз: {item.release_date}</p>
 											<p className={s.slider_info__description}>{limitStr(item.overview, 120)}</p>
-											<Link to={`/web-movie/movie/${item.id}`}>
+											<Link to={`/movie/${item.id}`}>
 												<p className={s.slider_info__view}>дивитися</p>
 											</Link>
 										</div>

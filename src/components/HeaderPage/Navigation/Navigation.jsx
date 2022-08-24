@@ -6,13 +6,13 @@ let activClass = ({ isActive }) => (isActive ? s.active : '');
 const Navigation = () => {
 	return (
 		<div className={s.navigation}>
-			<NavLink className={activClass} to="/web-movie/">
+			<NavLink className={activClass} to="/">
 				ГОЛОВНА
 			</NavLink>
-			<NavLink className={activClass} to="/web-movie/movies">
+			<NavLink className={activClass} to="/movies">
 				ФІЛЬМИ
 			</NavLink>
-			<NavLink className={activClass} to="/web-movie/tv-series">
+			<NavLink className={activClass} to="/tv-series">
 				ТЕЛЕСЕРІАЛИ
 			</NavLink>
 		</div>
