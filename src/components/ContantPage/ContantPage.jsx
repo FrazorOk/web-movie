@@ -11,6 +11,7 @@ import { Suspense } from 'react';
 let HomePage = React.lazy(() => import('./HomePage/HomePage'));
 let MoviesPage = React.lazy(() => import('./MoviesPage/MoviesPage'));
 let TvPage = React.lazy(() => import('./TvPage/TvPage'));
+let MoviePage = React.lazy(() => import('./MoviePage/MoviePage'));
 
 const ContantPage = () => {
 	let dispatch = useDispatch();
@@ -32,6 +33,7 @@ const ContantPage = () => {
 						<Route path="/movies/:params/" element={<MoviesPage />} />
 						<Route path="/tv-series/" element={<TvPage />} />
 						<Route path="/tv-series/:params/" element={<TvPage />} />
+						<Route path="/movie/:params/" element={<MoviePage />} />
 					</Routes>
 				</Suspense>
 			)}

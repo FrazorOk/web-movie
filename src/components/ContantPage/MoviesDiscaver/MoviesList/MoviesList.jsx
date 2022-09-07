@@ -4,6 +4,7 @@ import { setCurrentPage } from '../../../../store/movies-reducer';
 import { selectMoviesPagination } from '../../../../selectors/movies-selector';
 import s from './MoviesList.module.scss';
 import MoviesCard from './MoviesCard/MoviesCard';
+import Loader from '../../../common/Loader/Loader';
 
 const MoviesList = ({ activeCollection }) => {
 	let dispatch = useDispatch();

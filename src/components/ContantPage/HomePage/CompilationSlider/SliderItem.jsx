@@ -8,10 +8,13 @@ import React from 'react';
 
 const SliderItem = ({ collaction }) => {
 	const settings = {
-		centerMode: false,
 		infinite: false,
-		arrows: true,
+		speed: 400,
 		slidesToShow: 6,
+		swipeToSlide: true,
+		slidesToScroll: 2,
+		lazyLoad: true,
+		initialSlide: 0,
 	};
 
 	return (

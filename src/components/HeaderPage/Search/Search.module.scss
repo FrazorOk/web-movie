@@ -20,3 +20,9 @@
 		padding: 5px;
 	}
 }
+
+@media (max-width: 500px) {
+	.search {
+		display: none;
+	}
+}

@@ -15,7 +15,7 @@ const MoviesCard = ({ item }) => {
 					</div>
 				</Link>
 			</div>
-			<h3 className={s.movies_card__title}>{item.title}</h3>
+			<h3 className={s.movies_card__title}>{item.title || item.name}</h3>
 		</div>
 	);
 };

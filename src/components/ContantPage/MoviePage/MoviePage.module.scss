@@ -1,0 +1,47 @@
+.movie_page {
+	width: 100%;
+	padding-top: 100px;
+	position: relative;
+
+	&__backgroundImg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		width: 100vw;
+		height: 600px;
+		background-size: cover;
+		background-position: center;
+		background-color: rgb(95, 68, 68);
+
+		img {
+			width: 100vw;
+			height: 600px;
+			object-fit: cover;
+		}
+	}
+
+	&__backgroundImg::after {
+		content: '';
+		width: 100vw;
+		height: 601px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgb(10, 10, 10);
+		background: linear-gradient(
+			0deg,
+			rgba(10, 10, 10, 1) 0%,
+			rgba(10, 10, 10, 0.6) 25%,
+			rgba(10, 10, 10, 0.6) 50%,
+			rgba(10, 10, 10, 0.6) 75%,
+			rgb(10, 10, 10, 1) 100%
+		);
+		z-index: 6;
+	}
+
+	&__list {
+		position: relative;
+		z-index: 16;
+	}
+}

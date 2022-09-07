@@ -3,8 +3,7 @@ import { apiDiscaverMovie, apiGetGenres } from '../api/api';
 let SET_HEADER_MOVIE_COLLECTION = 'home-reducer/SET_HEADER_MOVIE_COLLECTION';
 let SET_GENRES = 'home-reducer/SET_GENRES';
 let SET_GENRES_IN_COMPILATIONS = 'home-reducer/SET_GENRES_IN_COMPILATIONS';
-let SET_STARTED_MOVIE_COLLACTION = 'home-reducer/SET_STARTED_MOVIE_COLLACTION';
-let SET_NEXT_MOVIE_COLLACTION = 'home-reducer/SET_NEXT_MOVIE_COLLACTION';
+let SET_MOVIE_COLLACTION = 'home-reducer/SET_MOVIE_COLLACTION';
 let RESET_MOVIE_COLLACTION = 'home-reducer/RESET_MOVIE_COLLACTION';
 let TOGGLE_DISABLED_ADD_COLLACTION_BTN = 'home-reducer/TOGGLE_DISABLED_ADD_COLLACTION_BTN';
 let SET_FETCHING = 'home-reducer/SET_FETCHING';
@@ -60,23 +59,7 @@ const homeReducer = (state = initState, action) => {
 				};
 			}
 			return state;
-		case SET_STARTED_MOVIE_COLLACTION:
-			if (state.homeMovieCollections.length < state.indexStartedCompilationsSliders) {
-				return {
-					...state,
-					homeMovieCollections: [
-						...state.homeMovieCollections,
-						{
-							type: action.typeFilter,
-							id: action.idFilter,
-							name: action.nameCollaction,
-							data: action.collaction,
-						},
-					],
-				};
-			}
-			return state;
-		case SET_NEXT_MOVIE_COLLACTION:
+		case SET_MOVIE_COLLACTION:
 			return {
 				...state,
 				homeMovieCollections: [
@@ -126,15 +109,8 @@ export const setGenresInCompilations = (genres) => ({
 	type: SET_GENRES_IN_COMPILATIONS,
 	genres,
 });
-export const setStartedHomeMovieCollaction = (typeFilter, idFilter, nameCollaction, collaction) => ({
-	type: SET_STARTED_MOVIE_COLLACTION,
-	typeFilter,
-	idFilter,
-	nameCollaction,
-	collaction,
-});
-export const setNextHomeMovieCollaction = (typeFilter, idFilter, nameCollaction, collaction) => ({
-	type: SET_NEXT_MOVIE_COLLACTION,
+export const setHomeMovieCollaction = (typeFilter, idFilter, nameCollaction, collaction) => ({
+	type: SET_MOVIE_COLLACTION,
 	typeFilter,
 	idFilter,
 	nameCollaction,
@@ -195,20 +171,22 @@ export const getGenres = () => (dispatch) => {
 	});
 };
 export const getStartedComplilationsMovie = (compilations) => (dispatch) => {
-	compilations.forEach((item) => {
-		item.data.forEach((elem) => {
-			let type = item.type,
-				property = elem.id,
-				name = elem.name,
-				params = `&${type}=${property}`,
-				page = 1;
+	compilations.forEach((item, index) => {
+		if (index < 2) {
+			item.data.forEach((elem) => {
+				let type = item.type,
+					property = elem.id,
+					name = elem.name,
+					params = `&${type}=${property}`,
+					page = 1;
 
-			apiDiscaverMovie.getMoviesCollaction(page, params).then((response) => {
-				if (response.status === 200) {
-					dispatch(setStartedHomeMovieCollaction(type, property, name, response.data.results));
-				}
+				apiDiscaverMovie.getMoviesCollaction(page, params).then((response) => {
+					if (response.status === 200) {
+						dispatch(setHomeMovieCollaction(type, property, name, response.data.results));
+					}
+				});
 			});
-		});
+		}
 	});
 };
 export const getNextComplilationsMovie = (compilations, currentIndex) => (dispatch) => {
@@ -226,7 +204,7 @@ export const getNextComplilationsMovie = (compilations, currentIndex) => (dispat
 
 				apiDiscaverMovie.getMoviesCollaction(page, params).then((response) => {
 					if (response.status === 200) {
-						dispatch(setNextHomeMovieCollaction(type, property, name, response.data.results));
+						dispatch(setHomeMovieCollaction(type, property, name, response.data.results));
 						dispatch(toggleDisabledAddCollactionBtb(false));
 					}
 				});

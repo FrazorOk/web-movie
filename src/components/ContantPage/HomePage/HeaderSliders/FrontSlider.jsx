@@ -23,12 +23,11 @@ function limitStr(str, n, symb) {
 }
 
 const FrontSlider = (props) => {
-	let { movieCollaction, asNavFor, slider1 } = props;
+	let { movieCollaction, nextSliderImg } = props;
 
 	const genres = useSelector(selectGenres);
 
 	const settings = {
-		className: 'center',
 		centerMode: true,
 		dots: true,
 		infinite: true,
@@ -42,6 +41,7 @@ const FrontSlider = (props) => {
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
 		dotsClass: s.sliders__pagin,
+		beforeChange: (current, next) => nextSliderImg(next),
 
 		customPaging: function (i) {
 			return (
@@ -65,7 +65,6 @@ const FrontSlider = (props) => {
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
-					initialSlide: 1,
 					dots: false,
 				},
 			},
@@ -74,7 +73,7 @@ const FrontSlider = (props) => {
 
 	return (
 		<div className={s.header_slider}>
-			<Slider {...settings} asNavFor={asNavFor} ref={slider1}>
+			<Slider {...settings}>
 				{movieCollaction.map((item) => {
 					return (
 						<div key={item.id} className={s.slider_item}>

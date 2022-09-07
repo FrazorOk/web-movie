@@ -11,14 +11,13 @@ const GenresSlider = () => {
 
 	const settings = {
 		className: 'slider variable-width',
-		slidesToShow: 1,
-		centerMode: true,
 		infinite: true,
 		variableWidth: true,
+		swipeToSlide: true,
 		arrows: false,
 		autoplay: true,
-		speed: 2000,
-		autoplaySpeed: 100,
+		speed: 900,
+		autoplaySpeed: 900,
 		pauseOnHover: true,
 	};
 

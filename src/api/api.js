@@ -26,3 +26,7 @@ export let apiDiscaverTv = {
 export let apiGetGenres = () => {
 	return instance.get(`genre/movie/list?api_key=${apiKey}&language=uk-UA`);
 };
+
+export let apiGetMovie = (id) => {
+	return instance.get(`movie/${id}?api_key=${apiKey}&language=uk-UA`);
+};

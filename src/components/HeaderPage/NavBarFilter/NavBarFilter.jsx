@@ -4,14 +4,26 @@ import { Link } from 'react-router-dom';
 const NavBarFilter = () => {
 	return (
 		<div className={s.navbar__filter}>
-			<p>
-				<Link to={'/movies'}>ГОД</Link>
-			</p>
-			<Link to={'/movies'}>2022</Link>
-			<Link to={'/movies'}>УЖАСЫ</Link>
-			<Link to={'/movies'}>КОМЕДИИ</Link>
-			<Link to={'/movies'}>ТРЕЛЛЕРЫ</Link>
-			<Link to={'/movies'}>БОЕВИКИ</Link>
+			<ul>
+				<li>
+					<Link to={'/movies'}>ГОД</Link>
+				</li>
+				<li>
+					<Link to={'/movies'}>2022</Link>
+				</li>
+				<li>
+					<Link to={'/movies'}>УЖАСЫ</Link>
+				</li>
+				<li>
+					<Link to={'/movies'}>КОМЕДИИ</Link>
+				</li>
+				<li>
+					<Link to={'/movies'}>ТРЕЛЛЕРЫ</Link>
+				</li>
+				<li>
+					<Link to={'/movies'}>БОЕВИКИ</Link>
+				</li>
+			</ul>
 		</div>
 	);
 };

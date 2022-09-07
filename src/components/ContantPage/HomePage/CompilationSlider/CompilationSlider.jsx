@@ -2,7 +2,7 @@ import s from './CompilationSlider.module.scss';
 import { selectCompilations, selectHomeFetching, selectHomeMovieCollections } from '../../../../selectors/home-selector';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { getNextComplilationsMovie, getStartedComplilationsMovie } from '../../../../store/home-reducer';
+import { getNextComplilationsMovie } from '../../../../store/home-reducer';
 import SliderItem from './SliderItem';
 import CompilationSliderBtns from './CompilationSliderBtns';
 import React from 'react';
@@ -16,10 +16,6 @@ const CompilationSlider = () => {
 	let dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getStartedComplilationsMovie(compilations));
-	}, []);
-
-	useEffect(() => {
 		if (homeFetching && currentIndex <= compilations.length) {
 			dispatch(getNextComplilationsMovie(compilations, currentIndex));
 
@@ -31,7 +27,7 @@ const CompilationSlider = () => {
 		<>
 			{movieCollactions.map((collaction, index) => {
 				return (
-					<div key={index} className={s.collaction_container}>
+					<div key={'collaction' + index} className={s.collaction_container}>
 						<CompilationSliderBtns collaction={collaction} />
 						<SliderItem collaction={collaction} />
 					</div>
