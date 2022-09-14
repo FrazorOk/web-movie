@@ -1,0 +1,23 @@
+.movie_genres {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 10px;
+
+	&__genre {
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-size: 16px;
+		font-weight: 600;
+		padding: 4px 10px;
+		border: 2px solid white;
+		border-radius: 26px;
+		margin-right: 10px;
+		margin-top: 10px;
+		box-shadow: 0 0 6px 1px white;
+		transition: all 0.2s ease 0.1s;
+	}
+	&__genre:hover {
+		background-color: red;
+		border: 2px solid rgb(255, 0, 0);
+		box-shadow: 0 0 6px 1px rgb(255, 0, 0);
+	}
+}

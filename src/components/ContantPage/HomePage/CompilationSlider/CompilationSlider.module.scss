@@ -67,7 +67,7 @@
 		box-shadow: 0px 0px 14px 2px rgb(56, 56, 56);
 		display: none;
 		z-index: 5;
-		transition: all 0.3s ease;
+		transition: all 0.3s ease 0.1s;
 		cursor: pointer;
 	}
 	&__play_container {

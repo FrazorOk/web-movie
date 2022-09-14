@@ -5,6 +5,7 @@ import s from './GenresSlider.module.scss';
 import { selectCompilations } from '../../../../selectors/home-selector';
 import { useSelector } from 'react-redux';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const GenresSlider = () => {
 	let compilations = useSelector(selectCompilations);
@@ -28,7 +29,9 @@ const GenresSlider = () => {
 					return item.data.map((elem) => {
 						return (
 							<div className={s.genres_slider__item}>
-								<p className={s.genres_slider__page}>{elem.name}</p>
+								<Link to={`/movies/&${item.type}=${elem.id}`} className={s.genres_slider__page}>
+									{elem.name}
+								</Link>
 							</div>
 						);
 					});

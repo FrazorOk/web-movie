@@ -1,9 +1,10 @@
 import s from './MovieParagraf.module.scss';
 
-const MovieParagraf = () => {
+const MovieParagraf = ({ overview }) => {
 	return (
-		<div className={s.movie_page__info}>
-			<p>MovieParagraf</p>
+		<div className={s.movie_paragraf}>
+			<h5>Опис:</h5>
+			<p>{overview}</p>
 		</div>
 	);
 };
