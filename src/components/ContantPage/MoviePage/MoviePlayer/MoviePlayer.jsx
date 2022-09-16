@@ -2,11 +2,12 @@ import { useSelector } from 'react-redux';
 import { selectMovieVideo } from '../../../../selectors/movie-selector';
 import s from './MoviePlayer.module.scss';
 
-const MoviePlayer = () => {
+const MoviePlayer = ({ title }) => {
 	let videos = useSelector(selectMovieVideo);
 
 	return (
 		<div className={s.movie_players}>
+			<h4>Дивитися онлайн {title} у найкращій якості</h4>
 			{videos.map((video, index) => {
 				if (index <= 0 && video.key)
 					return (

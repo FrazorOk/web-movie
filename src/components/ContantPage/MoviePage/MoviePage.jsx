@@ -33,7 +33,7 @@ const MoviePage = () => {
 				<div className={s.movie_page__list}>
 					<div className="container">
 						<MovieInfo movieInfo={movieInfo} />
-						<MoviePlayer />
+						<MoviePlayer title={movieInfo.title || movieInfo.name} />
 						<MovieSimilar />
 					</div>
 				</div>

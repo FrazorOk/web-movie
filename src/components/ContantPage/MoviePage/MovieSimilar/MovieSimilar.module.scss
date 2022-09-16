@@ -4,7 +4,7 @@
 
 	h3 {
 		font-family: 'Montserrat Alternates', sans-serif;
-		font-size: 28px;
+		font-size: 26px;
 		font-weight: 700;
 		margin: 0px 0px 20px 30px;
 	}
@@ -13,12 +13,14 @@
 		padding: 8px;
 		height: max-content;
 	}
+
 	&__slider_card {
 		display: block;
 		height: 315px;
 		padding: 10px;
 		border: 1px solid white;
 		box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.514);
+		transition: all 0.3s ease;
 
 		img {
 			width: 180px;
@@ -32,7 +34,25 @@
 			text-align: center;
 		}
 	}
+
+	&__slider_card:hover {
+		background-color: rgb(68, 68, 68);
+		animation-name: shadowAnim;
+		animation-duration: 0.5s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	}
 }
+
 .movie_similar :global(.slick-slide) {
 	height: 100%;
+}
+
+@keyframes shadowAnim {
+	0% {
+		box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.514);
+	}
+	100% {
+		box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.914);
+	}
 }
