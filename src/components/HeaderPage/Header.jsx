@@ -3,6 +3,7 @@ import Logo from './Logo/Logo';
 import NavBar from './NavBar/NavBar';
 import Navigation from './Navigation/Navigation';
 import Search from './Search/Search';
+import React from 'react';
 
 const Header = () => {
 	return (
@@ -18,4 +19,4 @@ const Header = () => {
 		</div>
 	);
 };
-export default Header;
+export default React.memo(Header);

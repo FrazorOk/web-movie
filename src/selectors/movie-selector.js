@@ -10,3 +10,6 @@ export let selectMovieVideo = (state) => {
 export let selectMovieSimilar = (state) => {
 	return state.movie.movieSimilar;
 };
+export let selectMovieFetching = (state) => {
+	return state.movie.fetching;
+};

@@ -2,14 +2,14 @@ import s from './MoviesDiscaver.module.scss';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getActiveCollection, resetMoviesPage } from '../../../store/movies-reducer';
+import { getActiveCollection, resetMoviesPage, toggleFetchingMoviesPagination } from '../../../store/movies-reducer';
 import { selectFetchingMoviesPagination, selectMoviesActiveCollection, selectMoviesPage } from '../../../selectors/movies-selector';
 import MoviesList from './MoviesList/MoviesList';
 import Loader from '../../common/Loader/Loader';
 import ScrollToTop from '../../common/ScrollToTop/ScrollToTop';
 import MoviesFilter from './MoviesFilter/MoviesFilter';
 
-function MoviesDiscaver({ getApi }) {
+function MoviesDiscaver({ getApi, typeApi }) {
 	let params = useParams();
 	let dispatch = useDispatch();
 
@@ -18,10 +18,9 @@ function MoviesDiscaver({ getApi }) {
 	let page = useSelector(selectMoviesPage);
 
 	useEffect(() => {
-		return () => {
-			dispatch(resetMoviesPage());
-		};
-	}, []);
+		dispatch(resetMoviesPage());
+		dispatch(toggleFetchingMoviesPagination(true));
+	}, [params]);
 
 	useEffect(() => {
 		if (fetchingActiveCollection) {
@@ -38,7 +37,7 @@ function MoviesDiscaver({ getApi }) {
 					<div className="container">
 						<div className={s.movies_page}>
 							<MoviesFilter />
-							<MoviesList activeCollection={activeCollection} />
+							<MoviesList activeCollection={activeCollection} typeApi={typeApi} />
 						</div>
 					</div>
 				</>

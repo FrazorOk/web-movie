@@ -28,16 +28,16 @@ export let apiGetGenres = () => {
 };
 
 export let apiGetMovie = {
-	getMovieInfo: (id) => {
-		return instance.get(`movie/${id}?api_key=${apiKey}&language=uk-UA`);
+	getMovieInfo: (id, type) => {
+		return instance.get(`${type}/${id}?api_key=${apiKey}&language=uk-UA`);
 	},
-	getMovieCast: (id) => {
-		return instance.get(`movie/${id}/credits?api_key=${apiKey}&language=uk-UA`);
+	getMovieCast: (id, type) => {
+		return instance.get(`${type}/${id}/credits?api_key=${apiKey}&language=uk-UA`);
 	},
-	getMovieVideos: (id, language) => {
-		return instance.get(`movie/${id}/videos?api_key=${apiKey}&language=${language}`);
+	getMovieVideos: (id, type, language) => {
+		return instance.get(`${type}/${id}/videos?api_key=${apiKey}&language=${language}`);
 	},
-	getMovieSimilar: (id) => {
-		return instance.get(`movie/${id}/similar?api_key=${apiKey}&language=uk-UA`);
+	getMovieSimilar: (id, type) => {
+		return instance.get(`${type}/${id}/similar?api_key=${apiKey}&language=uk-UA`);
 	},
 };

@@ -10,7 +10,7 @@ import { Suspense } from 'react';
 
 let HomePage = React.lazy(() => import('./HomePage/HomePage'));
 let MoviesPage = React.lazy(() => import('./MoviesPage/MoviesPage'));
-let TvPage = React.lazy(() => import('./TvPage/TvPage'));
+let TvsPage = React.lazy(() => import('./TvsPage/TvsPage'));
 let MoviePage = React.lazy(() => import('./MoviePage/MoviePage'));
 
 const ContantPage = () => {
@@ -31,13 +31,13 @@ const ContantPage = () => {
 						<Route path="/" element={<HomePage />} />
 						<Route path="/movies/" element={<MoviesPage />} />
 						<Route path="/movies/:params/" element={<MoviesPage />} />
-						<Route path="/tv-series/" element={<TvPage />} />
-						<Route path="/tv-series/:params/" element={<TvPage />} />
-						<Route path="/movie/:params/" element={<MoviePage />} />
+						<Route path="/tv-series/" element={<TvsPage />} />
+						<Route path="/movie/:params/" element={<MoviePage type="movie" />} />
+						<Route path="/tv/:params/" element={<MoviePage type="tv" />} />
 					</Routes>
 				</Suspense>
 			)}
 		</div>
 	);
 };
-export default ContantPage;
+export default React.memo(ContantPage);

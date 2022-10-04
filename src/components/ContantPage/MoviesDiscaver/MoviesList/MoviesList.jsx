@@ -4,9 +4,8 @@ import { setCurrentPage } from '../../../../store/movies-reducer';
 import { selectMoviesPagination } from '../../../../selectors/movies-selector';
 import s from './MoviesList.module.scss';
 import MoviesCard from './MoviesCard/MoviesCard';
-import Loader from '../../../common/Loader/Loader';
 
-const MoviesList = ({ activeCollection }) => {
+const MoviesList = ({ activeCollection, typeApi }) => {
 	let dispatch = useDispatch();
 	let pagination = useSelector(selectMoviesPagination);
 
@@ -23,7 +22,7 @@ const MoviesList = ({ activeCollection }) => {
 		<div className={s.movies_list}>
 			<div className={s.movies_list__collaction}>
 				{activeCollection.map((item) => (
-					<MoviesCard item={item} key={item.id} />
+					<MoviesCard item={item} key={item.id} typeApi={typeApi} />
 				))}
 			</div>
 			<ReactPaginate

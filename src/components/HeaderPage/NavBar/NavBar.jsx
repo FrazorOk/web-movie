@@ -1,6 +1,7 @@
 import s from './NavBar.module.scss';
 import { useDispatch } from 'react-redux';
 import { toggleNavBarStatus } from '../../../store/header-reducer';
+import React from 'react';
 
 const NavBar = () => {
 	let dispatch = useDispatch();
@@ -15,4 +16,4 @@ const NavBar = () => {
 		</div>
 	);
 };
-export default NavBar;
+export default React.memo(NavBar);

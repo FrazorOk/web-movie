@@ -1,4 +1,5 @@
 import s from './FooterPage.module.scss';
+import React from 'react';
 
 const FooterPage = () => {
 	return (
@@ -9,4 +10,4 @@ const FooterPage = () => {
 		</div>
 	);
 };
-export default FooterPage;
+export default React.memo(FooterPage);

@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import { selectMovieSimilar } from '../../../../selectors/movie-selector';
 import { urlImg } from '../../../../api/api';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
-const MovieSimilar = () => {
+const MovieSimilar = ({ type }) => {
 	let movieSimilar = useSelector(selectMovieSimilar);
 
 	const settings = {
@@ -25,7 +26,7 @@ const MovieSimilar = () => {
 			<Slider {...settings}>
 				{movieSimilar.map((movie) => (
 					<div className={s.movie_similar__slider_item} key={movie.id}>
-						<Link to={`/movie/${movie.id}`} className={s.movie_similar__slider_card}>
+						<Link to={`/${type}/${movie.id}`} className={s.movie_similar__slider_card}>
 							<img src={`${urlImg}${movie.poster_path}`} alt="" />
 							<h4>{movie.title || movie.name}</h4>
 						</Link>
@@ -36,4 +37,4 @@ const MovieSimilar = () => {
 	);
 };
 
-export default MovieSimilar;
+export default React.memo(MovieSimilar);

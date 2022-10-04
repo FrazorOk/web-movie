@@ -2,6 +2,7 @@ import s from './Search.module.scss';
 import clipart from './clipart.png';
 import { Navigate } from 'react-router-dom';
 import { useSearch } from '../../../hooks/search';
+import React from 'react';
 
 const Search = () => {
 	let selectedCallback = (inputValue) => {
@@ -35,4 +36,4 @@ const Search = () => {
 	);
 };
 
-export default Search;
+export default React.memo(Search);

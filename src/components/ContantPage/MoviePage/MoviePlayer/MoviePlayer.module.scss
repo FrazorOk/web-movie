@@ -4,6 +4,19 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
+
+	&__backgroundImg {
+		position: absolute;
+		top: 30px;
+		right: -200px;
+		width: 50vw;
+		height: 50vw;
+		object-fit: fill;
+		transform: rotate(15deg);
+		filter: blur(0.9px);
+		z-index: -5;
+	}
 
 	h4 {
 		font-family: 'Montserrat Alternates', sans-serif;
@@ -16,6 +29,10 @@
 		width: 100%;
 		margin-top: 30px;
 		padding-bottom: 56%;
+		transition: all 0.2s ease;
+	}
+	&__player:hover {
+		transform: scale(1.1);
 	}
 
 	&__video {

@@ -4,11 +4,12 @@ import MoviesDiscaver from '../MoviesDiscaver/MoviesDiscaver';
 
 function MoviesPage() {
 	let getApi = apiDiscaverMovie.getMoviesCollaction;
+	let typeApi = 'movie';
 
 	return (
 		<>
 			<ScrollToTop />
-			<MoviesDiscaver getApi={getApi} />
+			<MoviesDiscaver getApi={getApi} typeApi={typeApi} />
 		</>
 	);
 }

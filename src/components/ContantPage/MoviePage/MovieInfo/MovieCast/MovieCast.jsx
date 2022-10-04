@@ -1,7 +1,11 @@
 import { useSelector } from 'react-redux';
-import { urlImg } from '../../../../../api/api';
 import { selectMovieCast } from '../../../../../selectors/movie-selector';
 import s from './MovieCast.module.scss';
+import React from 'react';
+import { Suspense } from 'react';
+import Loader from '../../../../common/Loader/Loader';
+
+let MovieCastImg = React.lazy(() => import('./MovieCastImg'));
 
 const MovieCast = () => {
 	let castList = useSelector(selectMovieCast);
@@ -14,7 +18,11 @@ const MovieCast = () => {
 					if (index < 7 && castCard.profile_path)
 						return (
 							<li className={s.movie_cast__item} key={castCard.id}>
-								<img src={`${urlImg}${castCard.profile_path}`} alt="sorry" />
+								<div className={s.movie_cast__container_img}>
+									<Suspense fallback={<Loader size={'70px'} marginTop={'10px'} />}>
+										<MovieCastImg profile_path={castCard.profile_path} />
+									</Suspense>
+								</div>
 								<p>{castCard.name}</p>
 							</li>
 						);

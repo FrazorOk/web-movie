@@ -4,17 +4,14 @@ let SET_MOVIE_INFO = 'movie-reducer/SET_MOVIE_COLLACTION';
 let SET_MOVIE_CAST = 'movie-reducer/SET_MOVIE_CAST';
 let SET_MOVIE_VIDEO = 'movie-reducer/SET_MOVIE_VIDEO';
 let SET_MOVIE_SIMILAR = 'movie-reducer/SET_MOVIE_SIMILAR';
+let TOGGLE_MOVIE_FETCHING = 'movie-reducer/TOGGLE_MOVIE_FETCHING';
 
 const initState = {
 	movieInfo: [],
 	movieCast: [],
 	movieVideo: [],
 	movieSimilar: [],
-	fetching: {
-		infoFetching: true,
-		castFetching: true,
-		videoFetching: true,
-	},
+	fetching: true,
 };
 
 const movieReducer = (state = initState, action) => {
@@ -39,6 +36,11 @@ const movieReducer = (state = initState, action) => {
 				...state,
 				movieSimilar: action.list,
 			};
+		case TOGGLE_MOVIE_FETCHING:
+			return {
+				...state,
+				fetching: action.status,
+			};
 		default:
 			return state;
 	}
@@ -60,22 +62,28 @@ export const setMovieSimilar = (list) => ({
 	type: SET_MOVIE_SIMILAR,
 	list,
 });
+export const setMovieFetching = (status) => ({
+	type: TOGGLE_MOVIE_FETCHING,
+	status,
+});
 
 // thunk
-export const getMovieCollection = (params) => (dispatch) => {
-	apiGetMovie.getMovieInfo(params).then((response) => {
+export const getMovieCollection = (params, type) => (dispatch) => {
+	dispatch(setMovieFetching(true));
+	apiGetMovie.getMovieInfo(params, type).then((response) => {
 		dispatch(setMovieCollaction(response.data));
+		dispatch(setMovieFetching(false));
 	});
 };
-export const getMovieCast = (id) => (dispatch) => {
-	apiGetMovie.getMovieCast(id).then((response) => {
+export const getMovieCast = (id, type) => (dispatch) => {
+	apiGetMovie.getMovieCast(id, type).then((response) => {
 		dispatch(setMovieCast(response.data.cast));
 	});
 };
-export const getMovieVideos = (id) => (dispatch) => {
-	apiGetMovie.getMovieVideos(id, 'uk-UA').then((response) => {
+export const getMovieVideos = (id, type) => (dispatch) => {
+	apiGetMovie.getMovieVideos(id, type, 'uk-UA').then((response) => {
 		if (response.data.results.length === 0) {
-			apiGetMovie.getMovieVideos(id, 'en-US').then((result) => {
+			apiGetMovie.getMovieVideos(id, type, 'en-US').then((result) => {
 				dispatch(setMovieVideo(result.data.results));
 			});
 		} else {
@@ -83,8 +91,8 @@ export const getMovieVideos = (id) => (dispatch) => {
 		}
 	});
 };
-export const getMovieSimilar = (id) => (dispatch) => {
-	apiGetMovie.getMovieSimilar(id).then((response) => {
+export const getMovieSimilar = (id, type) => (dispatch) => {
+	apiGetMovie.getMovieSimilar(id, type).then((response) => {
 		dispatch(setMovieSimilar(response.data.results));
 	});
 };

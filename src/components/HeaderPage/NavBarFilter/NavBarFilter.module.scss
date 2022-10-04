@@ -1,7 +1,11 @@
 .navbar__filter {
-	background-color: grey;
+	font-family: 'Marmelad', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	background: rgba(27, 27, 27, 0.9);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(2.5px);
 	position: absolute;
-	width: 250px;
 	left: 25px;
 	top: 100%;
 	z-index: 5;
@@ -10,11 +14,37 @@
 	padding: 20px 50px 10px 50px;
 	cursor: default;
 
+	ul {
+		max-height: 450px;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		flex-wrap: wrap;
+		padding: 0 50px;
+
+		li {
+			margin-right: 20px;
+		}
+	}
+
 	a {
+		text-transform: uppercase;
+		display: block;
 		width: fit-content;
 		padding: 1px 5px;
 		margin-bottom: 10px;
-		display: block;
+		position: relative;
+	}
+
+	a:hover::after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background-color: white;
+		border-radius: 10px;
 	}
 }
 

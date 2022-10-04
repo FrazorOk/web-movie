@@ -1,15 +1,11 @@
 import s from './BtnArrowDown.module.scss';
-// props onClick
-// props text
-// props marginTop
-// props disabled
 
-const BtnArrowDown = (props) => {
+const BtnArrowDown = ({ onClick, text, marginTop, disabled }) => {
 	return (
 		<>
-			<button className={s.btn_arrow} disabled={props.disabled} onClick={props.onClick} style={{ marginTop: props.marginTop }}>
+			<button className={s.btn_arrow} disabled={disabled} onClick={onClick} style={{ marginTop: marginTop }}>
 				<div className={s.btn_arrow_down}>
-					<p className={s.text}>{props.text}</p>
+					<p className={s.text}>{text}</p>
 					<div className={s.arrow_icon}>
 						<div className={s.arrow_down_icon}></div>
 					</div>

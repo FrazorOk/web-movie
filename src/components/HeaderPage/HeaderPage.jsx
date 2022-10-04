@@ -2,6 +2,7 @@ import { useScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectHeaderNavBarStatus } from '../../selectors/header-selector';
+import React from 'react';
 import Header from './Header';
 import NavBarFilter from './NavBarFilter/NavBarFilter';
 
@@ -31,4 +32,4 @@ const HeaderPage = () => {
 		</>
 	);
 };
-export default HeaderPage;
+export default React.memo(HeaderPage);

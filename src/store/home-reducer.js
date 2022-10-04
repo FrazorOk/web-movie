@@ -91,6 +91,7 @@ const homeReducer = (state = initState, action) => {
 			return {
 				...state,
 				homeMovieCollections: [],
+				disabledAddCollactionBtn: false,
 			};
 		default:
 			return state;

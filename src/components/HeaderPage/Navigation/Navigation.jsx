@@ -1,5 +1,6 @@
 import s from './Navigation.module.scss';
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 
 let activClass = ({ isActive }) => (isActive ? s.active : '');
 
@@ -18,4 +19,4 @@ const Navigation = () => {
 		</div>
 	);
 };
-export default Navigation;
+export default React.memo(Navigation);

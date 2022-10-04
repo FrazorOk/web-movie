@@ -1,6 +1,7 @@
 .movie_similar {
 	width: 85%;
 	margin-top: 100px;
+	border: 1px solid rgba(0, 0, 0, 0);
 
 	h3 {
 		font-family: 'Montserrat Alternates', sans-serif;
@@ -10,13 +11,12 @@
 	}
 
 	&__slider_item {
-		padding: 8px;
-		height: max-content;
+		padding: 10px;
 	}
 
 	&__slider_card {
 		display: block;
-		height: 315px;
+		height: 300px;
 		padding: 10px;
 		border: 1px solid white;
 		box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.514);
@@ -24,7 +24,7 @@
 
 		img {
 			width: 180px;
-			height: 235px;
+			height: 225px;
 			object-fit: fill;
 			box-shadow: 0 0 3px rgba(255, 255, 255, 0.514);
 		}
