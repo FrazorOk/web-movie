@@ -8,7 +8,7 @@ import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<HashRouter basename="frazorok.github.io/web-movie">
+	<HashRouter>
 		<Provider store={store}>
 			<App />
 		</Provider>
